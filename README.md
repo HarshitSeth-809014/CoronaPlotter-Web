@@ -2,7 +2,7 @@
 # CoronaPlotter-Web
 It is world map that shows the cases of Coronavirus on it. It show it with markers of different colours. The scheme of colours of markers is also give at bottom-left.
 ## Screenshots
-![App Screenshot](./Screenshot)
+![App Screenshot](./Screenshot.png)
 
   
 ## Run Locally
