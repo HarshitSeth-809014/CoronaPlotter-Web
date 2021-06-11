@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #map {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .coordinates {
+      background: rgba(255, 255, 255, 0.693);
+      color: #fff;
+      position: absolute;
+      bottom: 70px;
+      left: 10px;
+      padding: 5px 10px;
+      margin: 0;
+      font-size: 11px;
+      line-height: 18px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    div.cont {
+      color: rgba(0, 0, 0, 0.721);
+      padding: 5px;
+      font-size: 12px;
+    }
+
+    .color {
+      width: 12px;
+      height: 12px;
+      background-color: black;
+      display: inline-block;
+      margin-right: 3px;
+    }
+  </style>
+  <title>Coronavirus Plotter</title>
+</head>
+
+<body>
+
+  <div id='map'></div>
+  <div id="coordinates" class="coordinates">
+    <div class="cont">
+      <div class="color" style="background-color: rgb(255, 0, 0);"></div> Cases are greater than 1,500,000
+    </div>
+    <div class="cont">
+      <div class="color" style="background-color: rgb(125, 14, 14);"></div> Cases are equal or lesser than 1,500,000 and
+      are greater than 500,000
+    </div>
+    <div class="cont">
+      <div class="color" style="background-color: rgb(77, 8, 8);"></div> Cases are equal or lesser than 500,000 and are
+      greater than 15,000
+    </div>
+    <div class="cont">
+      <div class="color" style="background-color: rgb(38, 3, 3);"></div> Cases are lesser than 15,000
+    </div>
+  </div>
+</body>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.js'></script>
+<script>
+  var bounds = [
+    [-152.38819636287263, -46.309389473821575], // Southwest coordinates
+    [187.9785583875584, 76.53535825882565] // Northeast coordinates
+  ];
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoiaGFyc2hpdDMxODIwMDgiLCJhIjoiY2twMHZlc2RrMHJ5dzJ3bnp4aXppbWZzYSJ9.XHFaJbWM_SykniXr6vH3sg';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/dark-v10',
+    zoom: 1,
+    continuousWorld: false,
+    noWrap: true,
+    maxBounds: bounds
+  });
+  map.dragRotate.disable();
+  map.touchZoomRotate.disableRotation();
+
+</script>
+
+<script src="./index.js"></script>
+
+</html>
